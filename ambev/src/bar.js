@@ -1,15 +1,14 @@
 import * as firebase from 'firebase';
 
+var bars = []
 
-var events = []
-
-function save(id, name, date) {
+function save(id, name, address) {
     var db = firebase.database();
 
-    firebase.database().ref('events').set({
+    firebase.database().ref('bar').set({
         id: id,
         name: name,
-        date, date
+        address: address
     });
 }
 

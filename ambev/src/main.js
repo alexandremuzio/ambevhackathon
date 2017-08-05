@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import * as firebase from 'firebase';
 import bar_events from './bar_events'
+import bar from './bar'
 
 // Initialize Firebase
 var config = {
@@ -36,3 +37,4 @@ new Vue({
 })
 
 // console.log(bar_events.save("id", "name", "date"));
+// console.log(bar.save("id", "name", "address"))

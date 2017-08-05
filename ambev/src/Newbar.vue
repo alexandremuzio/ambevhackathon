@@ -29,7 +29,7 @@ export default {
   },
   methods: {
     saveBar: function () {
-      BarDAO.save(1, this.name, this.address);
+      BarDAO.save(this.name, this.address);
       console.log(this.address.value);
     },
     getAddressData: function (addressData, placeResultData) {

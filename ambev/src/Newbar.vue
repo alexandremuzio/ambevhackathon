@@ -9,8 +9,8 @@
     placeholder="Digite seu endereço"
     v-on:placechanged="getAddressData"
     >
-    </vue-google-autocomplete>
-    <button v-on:click="saveBar"></button>
+    </vue-google-autocomplete></br>
+    <button v-on:click="saveBar">Cadastrar</button>
   </div>
 </template>
 
@@ -30,11 +30,9 @@ export default {
   methods: {
     saveBar: function () {
       BarDAO.save(this.name, this.address);
-      console.log(this.address.value);
     },
     getAddressData: function (addressData, placeResultData) {
       this.address = addressData;
-      console.log(this.address);
     }
   }
 }

@@ -40,7 +40,7 @@ new Vue({
   render (h) { return h(this.ViewComponent) }
 })
 
-// Examples
+/*// Examples
 setTimeout(function() {
   // bar_events.save("id", "name", "date");
   bar.save("Bar do Ze", "Rua dos Bobos, num 0");
@@ -48,4 +48,4 @@ setTimeout(function() {
   bar.save("Bar do Calango", "Rua dos Otarios, num -1")
   // console.log(bar.getAll());
   // console.log(bar.getByQuery("address"))
-}, 4000);
+}, 4000);*/

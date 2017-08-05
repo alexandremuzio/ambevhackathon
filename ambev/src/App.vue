@@ -20,11 +20,19 @@
 </template>
 
 <script>
+import router from 'vue-router'
 export default {
   name: 'app',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      searchBar = "",
+      tags= "",
+    }
+  }
+  methods ()
+  {
+    return {
+     
     }
   }
 }

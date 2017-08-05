@@ -15,6 +15,8 @@ var config = {
   messagingSenderId: "375550617353"
 };
 firebase.initializeApp(config);
+bar.start();
+bar_events.start();
 
 const NotFound = { template: '<p>Page not found</p>' }
 const About = { template: '<p>about page</p>' }
@@ -38,5 +40,10 @@ new Vue({
   render (h) { return h(this.ViewComponent) }
 })
 
-// console.log(bar_events.save("id", "name", "date"));
-// console.log(bar.save("id", "name", "address"))
+// Examples
+setTimeout(function() {
+  // bar_events.save("id", "name", "date");
+  // bar.save("id", "name", "address");
+  // console.log(bar.getAll());
+  // console.log(bar.getByQuery("address"))
+}, 4000);

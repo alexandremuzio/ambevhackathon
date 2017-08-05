@@ -10,9 +10,8 @@ function start() {
     });
 }
 
-function save(id, name, date) {
+function save(name, date) {
     firebase.database().ref('events').push({
-        id: id,
         name: name,
         date, date
     });

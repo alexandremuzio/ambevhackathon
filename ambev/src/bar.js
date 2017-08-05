@@ -10,9 +10,8 @@ function start() {
     });
 }
 
-function save(id, name, address) {
+function save(name, address) {
     firebase.database().ref('bar').push({
-        id: id,
         name: name,
         address: address
     });

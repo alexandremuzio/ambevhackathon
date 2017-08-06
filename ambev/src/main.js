@@ -29,7 +29,7 @@ const NotFound = { template: '<p>Page not found</p>' }
 const routes = [
   { path: '/preview', component: BarPreview },
   { path: '/bar/:id', component: BarPage },
-  { path: '/editarbar', component: EditBar },
+  { path: '/editarbar/:id', component: EditBar },
   { path: '/novobar', component: NewBar },
   { path: '/', component: App },
   { path: '*', component: NotFound },
@@ -45,6 +45,6 @@ const app = new Vue({
 
 // setInterval(function() {
 //  bar.addEvent("-KqpX7b7y6fPIvlVo7Cz", 
-//    {name: "Atlético Mineiro vs Cruzeiro",
+//    {name: "Atlético Mineiro vs Palmeiras",
 //     time: "Sábado, 5 de Agosto 17:00"})
 // }, 4000);

@@ -129,6 +129,8 @@
 </template>
 
 <script>
+import BarLib from "./bar"
+import _ from "lodash"
 export default {
   data() {
     return {
@@ -165,40 +167,48 @@ export default {
       newdescription: "",
     }
   },
+  beforeMount() {
+    BarLib.addLoadCallback(
+      () => {
+        var barId = this.$route.params.id
+        // var barId = "-Kqp7dQILIeUzxoGlhLY"
+        var allbars = BarLib.getAll()
+        console.log(allbars)
+        this.bar = _.find(allbars, (b) => b.id == barId)
+      }
+    )
+  },
   methods: {
     addProduct(event) {
       if (this.newproduct && this.newprice) {
         this.bar.menu.push({item: this.newproduct, price: this.newprice})
-        this.saveBar(this.bar)
+        // BarLib.updateBar(this.bar)
         this.newproduct = ""
         this.newprice = ""
       }
     },
-    addEvent(event) {
+    addEvent(e) {
       if (this.neweventname && this.newtime && this.neweventdescription) {
-        this.bar.events.push({
+        var neweventobj = {
           name: this.neweventname,
           time: this.processDateTime(this.newtime),
           description: this.neweventdescription
-        })
-        this.saveBar(this.bar)
+        }
+        if(!this.bar.events)  this.bar.events = []
+        // this.bar.events.push(neweventobj)
+        BarLib.addEvent(this.bar.id, {neweventobj})
         this.neweventname = ""
         this.newtime = ""
+        this.neweventdescription = ""
       }
     },
     submitForm(event) {
-      var newbar = {
-        name: this.newname || this.bar.name,
-        address: this.newaddress || this.bar.address,
-        menu: this.bar.menu,
-        events: this.bar.events,
-        description: this.newdescription || this.bar.description,
-      }
-      this.saveBar(newbar)
-      // go back
-    },
-    saveBar(bar) {
-      // save to firebase
+      this.bar.name = this.newname || this.bar.name
+      if (typeof this.bar.address == "string")
+        this.bar.address = {route: this.bar.address}
+      this.bar.address.route = this.newaddress || this.bar.address.route
+      this.bar.description = this.newdescription || this.bar.description || ""
+      BarLib.updateBar(this.bar.id)
     },
     processDateTime(datetime) {
       if (!datetime)  return
@@ -209,7 +219,7 @@ export default {
       return weekdays[realdate.getDay()] + ', ' + realdate.getDate() + ' de ' + months[realdate.getMonth()] + ' de ' + realdate.getFullYear() + ' às ' + timestr.substring(0,5) + '.'
     }
   },
-  // props: ["bar"],
+  props: ["barprop"],
 }
 </script>
 

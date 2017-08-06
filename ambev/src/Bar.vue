@@ -72,33 +72,33 @@ export default {
   data() {
     return {
       option: 'events',
-      bar : {
-        numReviews: 20,
-        rating: 1,
-        name: "Bar do Zeca",
-        image: "http://esq.h-cdn.co/assets/cm/15/06/54d3cdbba4f40_-_esq-01-bar-lgn.jpg",
-        address: 
-        {
-          route: "Rua H8B 238, Campus do CTA",
-          street_number: 238,
-        },
-        menu: [
-          {item: "Heiniken", price: "R$5"},
-          {item: "Coca Cola", price: "R$4"},
-          {item: "Água", price: "R$2"},
-          {item: "Costelão", price: "R$20"},
-        ],
-        events: [
-          {name: "Atlético Mineiro vs Cruzeiro", time: "Sábado, 5 de Agosto 17:00"},
-          {name: "Atlético Mineiro vs Cruzeiro", time: "Sábado, 5 de Agosto 17:00"},
-          {name: "Atlético Mineiro vs Cruzeiro", time: "Sábado, 5 de Agosto 17:00"},
-          {name: "Atlético Mineiro vs Cruzeiro", time: "Sábado, 5 de Agosto 17:00"},
-        ],
-        description: "Bar maneirão cheio de eventos maneiros. O PATRÃO ENLOUQUECEEEEU!!!!  Bar maneirão cheio de eventos maneiros. O PATRÃO ENLOUQUECEEEEU!!!!  Bar maneirão cheio de eventos maneiros. O PATRÃO ENLOUQUECEEEEU!!!!  Bar maneirão cheio de eventos maneiros. O PATRÃO ENLOUQUECEEEEU!!!!  Bar maneirão cheio de eventos maneiros. O PATRÃO ENLOUQUECEEEEU!!!!  Bar maneirão cheio de eventos maneiros. O PATRÃO ENLOUQUECEEEEU!!!!  Bar maneirão cheio de eventos maneiros. O PATRÃO ENLOUQUECEEEEU!!!!  Bar maneirão cheio de eventos maneiros. O PATRÃO ENLOUQUECEEEEU!!!!  Bar maneirão cheio de eventos maneiros. O PATRÃO ENLOUQUECEEEEU!!!!  Bar maneirão cheio de eventos maneiros. O PATRÃO ENLOUQUECEEEEU!!!!  Bar maneirão cheio de eventos maneiros. O PATRÃO ENLOUQUECEEEEU!!!!  Bar maneirão cheio de eventos maneiros. O PATRÃO ENLOUQUECEEEEU!!!!  Bar maneirão cheio de eventos maneiros. O PATRÃO ENLOUQUECEEEEU!!!!  Bar maneirão cheio de eventos maneiros. O PATRÃO ENLOUQUECEEEEU!!!!"
-      }
+      // bar : {
+      //   numReviews: 20,
+      //   rating: 1,
+      //   name: "Bar do Zeca",
+      //   image: "http://esq.h-cdn.co/assets/cm/15/06/54d3cdbba4f40_-_esq-01-bar-lgn.jpg",
+      //   address: 
+      //   {
+      //     route: "Rua H8B 238, Campus do CTA",
+      //     street_number: 238,
+      //   },
+      //   menu: [
+      //     {item: "Heiniken", price: "R$5"},
+      //     {item: "Coca Cola", price: "R$4"},
+      //     {item: "Água", price: "R$2"},
+      //     {item: "Costelão", price: "R$20"},
+      //   ],
+      //   events: [
+      //     {name: "Atlético Mineiro vs Cruzeiro", time: "Sábado, 5 de Agosto 17:00"},
+      //     {name: "Atlético Mineiro vs Cruzeiro", time: "Sábado, 5 de Agosto 17:00"},
+      //     {name: "Atlético Mineiro vs Cruzeiro", time: "Sábado, 5 de Agosto 17:00"},
+      //     {name: "Atlético Mineiro vs Cruzeiro", time: "Sábado, 5 de Agosto 17:00"},
+      //   ],
+      //   description: "Bar maneirão cheio de eventos maneiros. O PATRÃO ENLOUQUECEEEEU!!!!  Bar maneirão cheio de eventos maneiros. O PATRÃO ENLOUQUECEEEEU!!!!  Bar maneirão cheio de eventos maneiros. O PATRÃO ENLOUQUECEEEEU!!!!  Bar maneirão cheio de eventos maneiros. O PATRÃO ENLOUQUECEEEEU!!!!  Bar maneirão cheio de eventos maneiros. O PATRÃO ENLOUQUECEEEEU!!!!  Bar maneirão cheio de eventos maneiros. O PATRÃO ENLOUQUECEEEEU!!!!  Bar maneirão cheio de eventos maneiros. O PATRÃO ENLOUQUECEEEEU!!!!  Bar maneirão cheio de eventos maneiros. O PATRÃO ENLOUQUECEEEEU!!!!  Bar maneirão cheio de eventos maneiros. O PATRÃO ENLOUQUECEEEEU!!!!  Bar maneirão cheio de eventos maneiros. O PATRÃO ENLOUQUECEEEEU!!!!  Bar maneirão cheio de eventos maneiros. O PATRÃO ENLOUQUECEEEEU!!!!  Bar maneirão cheio de eventos maneiros. O PATRÃO ENLOUQUECEEEEU!!!!  Bar maneirão cheio de eventos maneiros. O PATRÃO ENLOUQUECEEEEU!!!!  Bar maneirão cheio de eventos maneiros. O PATRÃO ENLOUQUECEEEEU!!!!"
+      // }
     }
   },
-  //props: ["bar"],
+  props: ["bar"],
 }
 </script>
 

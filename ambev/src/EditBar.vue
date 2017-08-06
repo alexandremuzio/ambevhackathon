@@ -9,7 +9,7 @@
           </div>
           <br>
           <div class="field">
-            <label class="label">Message</label>
+            <label class="label">Detalhes</label>
             <div class="control">
               <textarea class="textarea" v-bind:placeholder="bar.description" rows="10" cols="50" v-model="newdescription"></textarea>
             </div>
@@ -62,12 +62,19 @@
                     <td>
                       <div class="field">
                         <div class="control">
-                          <input class="input" type="text" placeholder="Data" v-model="newtime">
+                          <input class="input" type="datetime-local" placeholder="Data" v-model="newtime">
                         </div>
                       </div>
                     </td>
                   </tr>
-                  <a v-on:click="addEvent" class="button is-secondary">Adicionar Evento</a>
+                  <tr style="background-color: transparent">
+                    <td></td>
+                    <td>
+                      <span class="icon is-large is-rounded" style="float: right">
+                        <i v-on:click="addEvent" class="fa fa-plus is-secondary"></i>
+                      </span>
+                    </td>
+                  </tr>
                 </tbody>
               </table>
 
@@ -90,12 +97,19 @@
                     <td>
                       <div class="field">
                         <div class="control">
-                          <input class="input" type="text" placeholder="Preço R$" v-model="newprice">
+                          <input class="input" type="text" placeholder="Preço (R$)" v-model="newprice">
                         </div>
                       </div>
                     </td>
                   </tr>
-                  <a v-on:click="addProduct" class="button is-secondary">Adicionar Produto</a>
+                  <tr style="background-color: transparent">
+                    <td></td>
+                    <td>
+                      <span class="icon is-large is-rounded" style="float: right">
+                        <i v-on:click="addProduct" class="fa fa-plus is-secondary"></i>
+                      </span>
+                    </td>
+                  </tr>
                 </tbody>
               </table>            
             </div>

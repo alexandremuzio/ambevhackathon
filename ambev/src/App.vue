@@ -68,12 +68,20 @@ export default {
       selectedBarId: null,
     }
   },
+  methods: {
+    deselectBar: function(barId) {
+      this.selectedBarId = null
+      console.log(barId)
+    },
+    routeTo: function(route) {
+      this.$router.push({path: route});
+    }
+  },
   computed: {
     selectedBar: function() {
       if (this.selectedBarId === null) {
         return
       }
-
       return this.filteredBars[this.selectedBarId]
     },
     filteredBars: function() {

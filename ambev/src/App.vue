@@ -3,7 +3,7 @@
     <nav class="navbar ">
       <div class="navbar-brand">
         <a class="navbar-item" href="">
-          <img src="./assets/logo.png" alt="uBar: Guia inteligente de vida bohemia" class="image is-128x128" width="120" height="150">
+          <img src="./assets/logo.png" alt="uBar: Guia inteligente de vida bohemia" class="image is-96x96" width="75" height="200">
         </a>
 
         <div class="navbar-item">

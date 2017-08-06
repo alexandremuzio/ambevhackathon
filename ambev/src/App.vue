@@ -2,8 +2,8 @@
   <div id="app" class="fill">
     <nav class="navbar ">
       <div class="navbar-brand">
-        <a class="navbar-item" href="http://bulma.io">
-          <img src="http://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
+        <a class="navbar-item" href="">
+          <img src="./assets/logo.png" alt="uBar: Guia inteligente de vida bohemia" class="image is-128x128" width="120" height="150">
         </a>
 
         <div class="navbar-item">

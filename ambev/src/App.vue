@@ -109,6 +109,9 @@ export default {
     deselectBar: function(barId) {
       this.selectedBarId = null
       console.log(barId)
+    },
+    routeTo: function(route) {
+      this.$router.push({path: route})
     }
   },
   components: {

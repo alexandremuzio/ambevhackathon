@@ -1,33 +1,52 @@
 <template>
   <div id="app">
-    <div class="container">
-      <div class="notification">
-        <div class="field">
-          <div class="control">
-            <input class="input is-primary" v-model="searchQuery" placeholder="Search"> 
+    <nav class="navbar ">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="http://bulma.io">
+          <img src="http://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
+        </a>
+
+
+        <div class="navbar-burger burger" data-target="navMenuExample">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <div id="navMenuExample" class="navbar-menu is-active">
+        <div class="navbar-start">
+          <div class="navbar-item">
+              <div class="field">
+                <div class="control">
+                  <input class="input is-primary" v-model="searchQuery" placeholder="Search"> 
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="field">
+              <p class="control">
+                <a class="button is-primary" href="/novobar">
+                  <span>Adicionar seu bar!</span>
+                </a>
+              </p>
+            </div>
           </div>
         </div>
       </div>
-      <div class="field is-grouped is-grouped-right">
-        <p class="control">
-          <a class="button is-primary">
-            Submit
-          </a>
-        </p>
-      </div>
-    </div>
+    </nav>
     <div v-for="bar in filteredBars">
-      {{bar}}
+      {{bar.name}}
     </div>
   </div>
 </template>
 
 <script>
 //import router from 'vue-router';
-  //import bar from 'bar.js'
-  var bar = {
-    getByQuery: () => [1, 2, 3, 4, 5, 6]
-  }
+  import bar from './bar'
 export default {
   name: 'app',
   data () {
@@ -39,7 +58,7 @@ export default {
   {
     filteredBars: function()
     {
-      return bar.getByQuery(this.searchQuery);
+      return bar.getAll(this.searchQuery);
     }
   }
 }

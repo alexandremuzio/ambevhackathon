@@ -1,16 +1,5 @@
 <template>
 <div>
-  <div class="section product-header">
-    <div class="container">
-      <div class="columns">
-        <div class="column">
-          <!-- <span class="title is-3">{{name}}</span> -->
-          <!-- <span class="title is-3 has-text-muted">&nbsp;|&nbsp;</span>
-          <span class="title is-4 has-text-muted">Category</span> -->
-        </div>
-      </div>
-    </div>
-  </div>
   <div class="section">
     <div class="container">
       <div class="columns">
@@ -24,7 +13,7 @@
         </div>
         <div class="column is-5 is-offset-1">
           <div class="title is-2">{{bar.name}}</div>
-          <p class="title is-6 has-text-muted">Rua H8B 238, Campus do CTA, São José dos Campos</p>
+          <p class="title is-6 has-text-muted">{{bar.address}}}</p>
           <hr> 
           <br>
           <p class="">
@@ -87,6 +76,7 @@ export default {
       bar : {
         name: "Bar do Zeca",
         image: "http://esq.h-cdn.co/assets/cm/15/06/54d3cdbba4f40_-_esq-01-bar-lgn.jpg",
+        address: "Rua H8B 238, Campus do CTA, São José dos Campos",
         menu: [
           {item: "Heiniken", price: "R$5"},
           {item: "Coca Cola", price: "R$4"},

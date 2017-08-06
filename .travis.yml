@@ -7,10 +7,11 @@ branches:
     - master
 
 before_script:
+  - cd ambev
+  - npm install
   - npm install -g firebase-tools
 
 script:
-  - cd ambev
   - npm run build
 
 after_success:

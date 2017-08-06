@@ -1,8 +1,8 @@
 import Vue from 'vue'
+import VueRouter from 'vue-router'
 import App from './App.vue'
-import Bar from './Bar.vue'
 import NewBar from './Newbar.vue'
-
+import BarPage from './Bar.vue'
 import * as firebase from 'firebase';
 import bar_events from './bar_events'
 import bar from './bar'
@@ -20,25 +20,21 @@ firebase.initializeApp(config);
 bar.start();
 bar_events.start();
 
+Vue.use(VueRouter);
+
 const NotFound = { template: '<p>Page not found</p>' }
-const About = { template: '<p>about page</p>' }
 
-const routes = {
-  '/': App,
-  '/about': About,
-  '/bar': Bar,
-  '/novobar': NewBar,
-}
+const routes = [
+  { path: '/bar/:id', component: BarPage },
+  { path: '/novobar', component: NewBar },
+  { path: '/', component: App },
+  { path: '*', component: NotFound }
+]
 
-new Vue({
-  el: '#app',
-  data: {
-    currentRoute: window.location.pathname
-  },
-  computed: {
-    ViewComponent () {
-      return routes[this.currentRoute] || NotFound
-    }
-  },
-  render (h) { return h(this.ViewComponent) }
+const router = new VueRouter({
+  routes // short for `routes: routes`
 })
+
+const app = new Vue({
+  router
+}).$mount('#app');

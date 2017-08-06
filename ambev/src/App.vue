@@ -29,7 +29,7 @@
           <div class="navbar-item">
             <div class="field">
               <p class="control">
-                <a class="button is-primary" href="/novobar">
+                <a class="button is-primary" v-on:click="routeTo('/novobar')">
                   <span>Adicionar seu bar!</span>
                 </a>
               </p>
@@ -52,6 +52,11 @@ export default {
   data () {
     return {
       searchQuery: "",
+    }
+  },
+  methods:{
+    routeTo: function (route) {
+      this.$router.push({ path: route });
     }
   },
   computed:

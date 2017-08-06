@@ -1,5 +1,4 @@
-import * as firebase from 'firebase';
-import _ from 'lodash'
+import * as firebase from 'firebase'; import _ from 'lodash'
 
 var bars = []
 
@@ -13,6 +12,23 @@ function start() {
       bars.push(bar)
     });
   });
+}
+
+function addEvent(barId, eventObj) {
+    var tags = eventObj.name.split(" ");
+    
+    var bar = _.find(bars, function(o) {console.log(o); return o.id === barId});
+
+    if (!bar.events) {
+        bar.events = [];
+    }
+    bar.events.push(eventObj);
+
+    _.forEach(tags, function(tag) {
+        bar.tags.push(tag);
+    });
+    
+    firebase.database().ref('bar/' + barId).set(bar);
 }
 
 function save(name, address) {
@@ -40,8 +56,9 @@ function getAll() {
 }
 
 export default {
-  start : start,
-  save : save,
-  getAll: getAll,
-  getByQuery: getByQuery
+    start : start,
+    addEvent : addEvent,
+    save : save,
+    getAll: getAll,
+    getByQuery: getByQuery
 }

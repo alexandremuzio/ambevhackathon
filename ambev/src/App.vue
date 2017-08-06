@@ -69,6 +69,15 @@ export default {
   mounted: function() {
     this.searchQuery = ""
   },
+  methods: {
+    deselectBar: function(barId) {
+      this.selectedBarId = null
+      console.log(barId)
+    },
+    routeTo: function(route) {
+      this.$router.push({path: route});
+    }
+  },
   computed: {
     selectedBar: function() {
       if (this.selectedBarId === null) {
@@ -108,6 +117,9 @@ export default {
     deselectBar: function(barId) {
       this.selectedBarId = null
       console.log(barId)
+    },
+    routeTo: function(route) {
+      this.$router.push({path: route})
     }
   },
   components: {

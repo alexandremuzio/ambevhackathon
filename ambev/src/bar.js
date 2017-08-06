@@ -16,7 +16,7 @@ function start() {
 
 function save(name, address) {
     var tags = name.split(" ");
-    firebase.database().ref('bar').push({
+    return firebase.database().ref('bar').push({
         name: name,
         address: address,
         tags: tags

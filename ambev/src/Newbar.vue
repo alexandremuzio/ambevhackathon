@@ -29,7 +29,10 @@ export default {
   },
   methods: {
     saveBar: function () {
-      BarDAO.save(this.name, this.address);
+      BarDAO.save(this.name, this.address)
+      .then((snap) => {
+        this.$router.push({ path: '/bar/' + snap.key });
+      });
     },
     getAddressData: function (addressData, placeResultData) {
       this.address = addressData;

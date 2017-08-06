@@ -14,14 +14,6 @@
   <div class="section">
     <div class="container">
       <div class="columns">
-        <div class="column is-6">
-          <div class="image is-2by2">
-            <img :src="bar.image">
-          </div>
-          <br>
-          <p>{{bar.description}}</p>
-          <br>
-        </div>
         <div class="column is-5 is-offset-1">
           <div class="title is-2">{{bar.name}}</div>
           <p class="title is-6 has-text-muted">Rua H8B 238, Campus do CTA, São José dos Campos</p>

@@ -181,6 +181,7 @@ export default {
   methods: {
     addProduct(event) {
       if (this.newproduct && this.newprice) {
+        if (!this.bar.menu) this.bar.menu = []
         this.bar.menu.push({item: this.newproduct, price: this.newprice})
         // BarLib.updateBar(this.bar)
         this.newproduct = ""

@@ -180,6 +180,7 @@ export default {
   },
   methods: {
     addProduct(event) {
+
       if (this.newproduct && this.newprice) {
         if (!this.bar.menu) this.bar.menu = []
         this.bar.menu.push({item: this.newproduct, price: this.newprice})
@@ -205,9 +206,9 @@ export default {
     },
     submitForm(event) {
       this.bar.name = this.newname || this.bar.name
-      if (typeof this.bar.address == "string")
-        this.bar.address = {route: this.bar.address}
-      this.bar.address.route = this.newaddress || this.bar.address.route
+      // if (typeof this.bar.address == "string")
+      //   this.bar.address = {route: this.bar.address}
+      // this.bar.address.route = this.newaddress || this.bar.address.route
       this.bar.description = this.newdescription || this.bar.description || ""
       BarLib.updateBar(this.bar.id)
     },

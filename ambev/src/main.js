@@ -26,7 +26,6 @@ Vue.use(VueRouter);
 
 const NotFound = { template: '<p>Page not found</p>' }
 
-<<<<<<< Updated upstream
 const routes = [
   { path: '/preview', component: BarPreview },
   { path: '/bar/:id', component: BarPage },

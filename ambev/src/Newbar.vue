@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="newbar">
     <section class="hero is-fullheight is-dark is-bold">
       <div class="hero-body">
         <div class="container">

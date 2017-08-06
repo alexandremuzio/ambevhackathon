@@ -6,13 +6,13 @@
           <img src="http://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
         </a>
 
-          <div class="navbar-item">
-            <div class="field">
-              <div class="control">
-                <input class="input is-primary" v-model="searchQuery" placeholder="Search"> 
-              </div>
+        <div class="navbar-item">
+          <div class="field">
+            <div class="control">
+              <input class="input is-primary" v-model="searchQuery" placeholder="Search"> 
             </div>
           </div>
+        </div>
         <div class="navbar-burger burger" data-target="navMenuExample">
           <span></span>
         </div>
@@ -35,6 +35,8 @@
         </div>
       </div>
     </nav>
+    <login-modal :visible="true">
+    </login-modal>
     <div class="fill"
       v-if="selectedBarId !== null">
       <button @click="deselectBar"> Back </Button>
@@ -57,6 +59,7 @@
 import BarMap from './Map.vue'
 import _ from 'lodash'
 import BarCard from './Bar.vue'
+import LoginModal from './LoginModal.vue'
 
 export default {
   name: 'app',
@@ -125,6 +128,7 @@ export default {
   components: {
     BarMap,
     BarCard,
+    LoginModal,
   }
 }
 </script>

@@ -63,7 +63,7 @@ function getByQuery(searchQuery) {
   var tokens = searchQuery.split(" ");
   return bars.filter(
     bar =>
-    tokens.some((token, index, tags) => bar.tags.includes(token)));
+    tokens.some((token, index, tokens) => bar.tags.some((tag, index, tags) => _.includes(tag, token))));
 }
 
 function getAll() {

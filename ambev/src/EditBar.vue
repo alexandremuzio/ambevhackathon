@@ -2,21 +2,21 @@
 <div>
   <div class="section">
     <div class="container">
-      <div class="columns">
-        <div class="column is-half">
+      <div class="columns is-centered">
+        <div class="column is-5">
           <div class="image is-2by2">
             <img :src="bar.image">
           </div>
           <br>
           <div class="field">
-            <label class="label">Detalhes</label>
+            <label class="label">Descrição</label>
             <div class="control">
               <textarea class="textarea" v-bind:placeholder="bar.description" rows="10" cols="50" v-model="newdescription"></textarea>
             </div>
           </div>
           <br>
         </div>
-        <div class="column">
+        <div class="column is-5 is-offset-1">
           <a v-on:click="submitForm" class="button is-primary">Confirmar</a>
           <hr>
           <div class="title is-2">
@@ -30,7 +30,7 @@
           <div class="field">
             <label class="label">Endereço</label>
             <div class="control">
-              <input class="input" type="text" v-bind:placeholder="bar.address" v-model="newaddress">
+              <input class="input" type="text" v-bind:placeholder="bar.address.route" v-model="newaddress">
             </div>
           </div>
           <hr> 
@@ -67,6 +67,13 @@
                       </div>
                     </td>
                   </tr>
+                  <tr><td colspan="2">
+                    <div class="field">
+                      <div class="control">
+                        <textarea class="textarea" placeholder="Descrição" v-model="neweventdescription"></textarea>
+                      </div>
+                    </div>
+                  </td></tr>
                   <tr style="background-color: transparent">
                     <td></td>
                     <td>
@@ -129,23 +136,27 @@ export default {
       bar : {
         name: "Bar do Zeca",
         image: "http://esq.h-cdn.co/assets/cm/15/06/54d3cdbba4f40_-_esq-01-bar-lgn.jpg",
-        address: "Rua H8B 238, Campus do CTA, São José dos Campos",
-        menu: [
+        address: 
+        {
+          route: "Rua H8B 238, Campus do CTA",
+          street_number: 238,
+        },        menu: [
           {item: "Heiniken", price: "R$5"},
           {item: "Coca Cola", price: "R$4"},
           {item: "Água", price: "R$2"},
           {item: "Costelão", price: "R$20"},
         ],
         events: [
-          {name: "Atlético Mineiro vs Cruzeiro", time: "Sábado, 5 de Agosto 17:00"},
-          {name: "Atlético Mineiro vs Cruzeiro", time: "Sábado, 5 de Agosto 17:00"},
-          {name: "Atlético Mineiro vs Cruzeiro", time: "Sábado, 5 de Agosto 17:00"},
-          {name: "Atlético Mineiro vs Cruzeiro", time: "Sábado, 5 de Agosto 17:00"},
+          {name: "Atlético Mineiro vs Cruzeiro", time: "Sábado, 5 de Agosto 17:00", description: "Jogaço de Futebol."},
+          {name: "Atlético Mineiro vs Cruzeiro", time: "Sábado, 5 de Agosto 17:00", description: "Jogaço de Futebol."},
+          {name: "Atlético Mineiro vs Cruzeiro", time: "Sábado, 5 de Agosto 17:00", description: "Jogaço de Futebol."},
+          {name: "Atlético Mineiro vs Cruzeiro", time: "Sábado, 5 de Agosto 17:00", description: "Jogaço de Futebol."},
         ],
         description: "Bar maneirão cheio de eventos maneiros. O PATRÃO ENLOUQUECEEEEU!!!!  Bar maneirão cheio de eventos maneiros. O PATRÃO ENLOUQUECEEEEU!!!!  Bar maneirão cheio de eventos maneiros. O PATRÃO ENLOUQUECEEEEU!!!!  Bar maneirão cheio de eventos maneiros. O PATRÃO ENLOUQUECEEEEU!!!!  Bar maneirão cheio de eventos maneiros. O PATRÃO ENLOUQUECEEEEU!!!!  Bar maneirão cheio de eventos maneiros. O PATRÃO ENLOUQUECEEEEU!!!!  Bar maneirão cheio de eventos maneiros. O PATRÃO ENLOUQUECEEEEU!!!!  Bar maneirão cheio de eventos maneiros. O PATRÃO ENLOUQUECEEEEU!!!!  Bar maneirão cheio de eventos maneiros. O PATRÃO ENLOUQUECEEEEU!!!!  Bar maneirão cheio de eventos maneiros. O PATRÃO ENLOUQUECEEEEU!!!!  Bar maneirão cheio de eventos maneiros. O PATRÃO ENLOUQUECEEEEU!!!!  Bar maneirão cheio de eventos maneiros. O PATRÃO ENLOUQUECEEEEU!!!!  Bar maneirão cheio de eventos maneiros. O PATRÃO ENLOUQUECEEEEU!!!!  Bar maneirão cheio de eventos maneiros. O PATRÃO ENLOUQUECEEEEU!!!!"
       },
       neweventname:"",
       newtime: "",
+      neweventdescription: "",
       newproduct: "",
       newprice: "",
       newname: "",
@@ -164,8 +175,12 @@ export default {
       }
     },
     addEvent(event) {
-      if (this.neweventname && this.newtime) {
-        this.bar.events.push({name: this.neweventname, time: this.newtime})
+      if (this.neweventname && this.newtime && this.neweventdescription) {
+        this.bar.events.push({
+          name: this.neweventname,
+          time: this.processDateTime(this.newtime),
+          description: this.neweventdescription
+        })
         this.saveBar(this.bar)
         this.neweventname = ""
         this.newtime = ""
@@ -184,8 +199,17 @@ export default {
     },
     saveBar(bar) {
       // save to firebase
+    },
+    processDateTime(datetime) {
+      if (!datetime)  return
+      var realdate = new Date(datetime)
+      var timestr = realdate.toLocaleTimeString('pt-br')
+      var weekdays = ["Domingo", "Segunda-Feira", "Terça-Feira", "Quarta-Feira", "Quinta-Feira", "Sexta-Feira", "Sábado"]
+      var months = ["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"]
+      return weekdays[realdate.getDay()] + ', ' + realdate.getDate() + ' de ' + months[realdate.getMonth()] + ' de ' + realdate.getFullYear() + ' às ' + timestr.substring(0,5) + '.'
     }
-  }
+  },
+  // props: ["bar"],
 }
 </script>
 

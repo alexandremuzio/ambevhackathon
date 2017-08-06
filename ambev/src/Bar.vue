@@ -15,7 +15,7 @@
           </div>
           <div class="column is-5 is-offset-1">
             <div class="title is-2">{{bar.name}}</div>
-            <p class="subtitle is-6 has-text-muted">{{bar.address.route}}, {{bar.address.street_number}}</p>
+            <p class="subtitle is-6 has-text-muted">{{bar.address.route}}</p>
             <div class="columns is-mobile">
               <div class="column">
                 <i 

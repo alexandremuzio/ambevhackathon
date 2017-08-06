@@ -6,7 +6,11 @@ var bars = []
 // Update bars the first time.
 function start() {
     firebase.database().ref('bar').once('value').then(function(snapshot) {
-        _.forEach(snapshot.val(), e => bars.push(e));
+        _.forEach(snapshot.val(), (value, key) => {
+            var bar = value;
+            bar.id = key;
+            bars.push(bar)
+        });
     });
 }
 

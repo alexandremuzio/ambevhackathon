@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import App from './App.vue'
-import Bar from './Bar.vue'
 import BarPreview from './BarPre.vue'
+import EditBar from './EditBar.vue'
 import NewBar from './Newbar.vue'
 import BarPage from './Bar.vue'
 import * as firebase from 'firebase';
@@ -26,10 +26,10 @@ Vue.use(VueRouter);
 
 const NotFound = { template: '<p>Page not found</p>' }
 
-<<<<<<< Updated upstream
 const routes = [
   { path: '/preview', component: BarPreview },
   { path: '/bar/:id', component: BarPage },
+  { path: '/editarbar', component: EditBar },
   { path: '/novobar', component: NewBar },
   { path: '/', component: App },
   { path: '*', component: NotFound },

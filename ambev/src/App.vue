@@ -41,31 +41,86 @@
     <div v-for="bar in filteredBars">
       {{bar.name}}
     </div>
+    <div> {{selectedBarId === null ? "no bar selected": "a bar selected"}} </div>
+     <div class="modal" :class="{ 'is-active': selectedBarId != null }">
+      <div class="modal-background" @click="deselectBar"></div>
+        <div class="modal-card">
+          <section class="modal-card-body">
+            <div class="modal-content">
+              <div class="container">
+                <bar-card
+                  bar="selectedBar"
+                ></bar-card>
+              </div>
+            </div>
+          </section>
+        </div>
+      <button class="modal-close is-large" @click="deselectBar"></button>
+    </div> 
+    <bar-map
+      :markers = "markers"
+    >
+    </bar-map>
   </div>
 </template>
 
 <script>
 //import router from 'vue-router';
   import bar from './bar'
-export default {
-  name: 'app',
-  data () {
-    return {
-      searchQuery: "",
+  import BarMap from './Map.vue'
+  import _ from 'lodash'
+  import BarCard from './Bar.vue'
+
+  export default {
+    name: 'app',
+    data () {
+      return {
+        searchQuery: "",
+        selectedBarId: null,
+      }
+    },
+    computed: {
+      selectedBar: function() {
+        if (this.selectedBarId === null) {
+          return
+        }
+        
+        return this.filteredBars[this.selectedBarId]
+      },
+      filteredBars: function() {
+        var x = bar.getAll(this.searchQuery);
+        console.log(bar.getAll())
+        console.log(this.searchQuery)
+        return x
+      },
+      markers: function() {
+        var self = this
+        return _.map(this.filteredBars, function(bar, index) {
+          return {
+            position: {
+              lat: bar.address.latitude,
+              lng: bar.address.longitude
+            },
+            name: bar.name,
+            index: index,
+            onClick: function() {
+              self.selectedBarId = index
+              console.log(index)
+            }
+          }
+        })
+      }
+    },
+    methods: {
+      deselectBar: function(barId) {
+        this.selectedBarId = null
+        console.log(barId)
+      }
+    },
+    components: {
+      BarMap,
+      BarCard,
     }
-  },
-  methods:{
-    routeTo: function (route) {
-      this.$router.push({ path: route });
-    }
-  },
-  computed:
-  {
-    filteredBars: function()
-    {
-      return bar.getAll(this.searchQuery);
-    }
-  }
 }
 </script>
 

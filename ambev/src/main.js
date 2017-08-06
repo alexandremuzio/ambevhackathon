@@ -42,3 +42,9 @@ const router = new VueRouter({
 const app = new Vue({
   router
 }).$mount('#app')
+
+// setInterval(function() {
+//  bar.addEvent("-KqpX7b7y6fPIvlVo7Cz", 
+//    {name: "Atlético Mineiro vs Cruzeiro",
+//     time: "Sábado, 5 de Agosto 17:00"})
+// }, 4000);

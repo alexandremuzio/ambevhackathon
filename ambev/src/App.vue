@@ -6,15 +6,6 @@
           <img src="http://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
         </a>
 
-        <div class="navbar-burger burger" data-target="navMenuExample">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </div>
-
-      <div id="navMenuExample" class="navbar-menu is-active">
-        <div class="navbar-start">
           <div class="navbar-item">
             <div class="field">
               <div class="control">
@@ -22,6 +13,13 @@
               </div>
             </div>
           </div>
+        <div class="navbar-burger burger" data-target="navMenuExample">
+          <span></span>
+        </div>
+      </div>
+
+      <div id="navMenuExample" class="navbar-menu">
+        <div class="navbar-start">
         </div>
 
         <div class="navbar-end">
@@ -41,7 +39,7 @@
       v-if="selectedBarId !== null">
       <button @click="deselectBar"> Back </Button>
       <bar-card
-        bar="selectedBar"
+        :bar="selectedBar"
         >
       </bar-card>
     </div>
@@ -64,9 +62,12 @@ export default {
   name: 'app',
   data () {
     return {
-      searchQuery: "",
+      searchQuery: null,
       selectedBarId: null,
     }
+  },
+  mounted: function() {
+    this.searchQuery = ""
   },
   computed: {
     selectedBar: function() {
@@ -74,14 +75,19 @@ export default {
         return
       }
 
-      return this.filteredBars[this.selectedBarId]
+      var bar = _.find(this.filteredBars, (b) => b.id === this.selectedBarId)
+      console.log(bar)
+      _.assignIn(bar, {
+        numReviews: 20,
+      });
+      return bar
     },
     filteredBars: function() {
-      return bar.getAll(this.searchQuery);
+      return bar.getByQuery(this.searchQuery);
     },
     markers: function() {
       var self = this
-      return _.map(this.filteredBars, function(bar, index) {
+      var marks = _.map(this.filteredBars, function(bar, index) {
         return {
           position: {
             lat: bar.address.latitude,
@@ -90,11 +96,12 @@ export default {
           name: bar.name,
           index: bar.id,
           onClick: function() {
-            self.selectedBarId = index
-            console.log(index)
+            self.selectedBarId = bar.id
           }
         }
       })
+      console.log(marks)
+      return marks
     }
   },
   methods: {

@@ -1,6 +1,8 @@
 # ambev
 
-> Project for Ambev Hack thi World
+[![Build Status](https://travis-ci.org/alexandremuzio/ambevhackathon.svg?branch=master)](https://travis-ci.org/alexandremuzio/ambevhackathon)
+
+> Project for Ambev Hack this World
 
 ## Build Setup
 

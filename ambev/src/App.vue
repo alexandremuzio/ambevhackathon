@@ -57,7 +57,7 @@
 
 <script>
 //import router from 'vue-router';
-  import bar from './bar'
+import bar from './bar'
 import BarMap from './Map.vue'
 import _ from 'lodash'
 import BarCard from './Bar.vue'
@@ -72,7 +72,9 @@ export default {
     }
   },
   mounted: function() {
-    this.searchQuery = ""
+    bar.addLoadCallback(() => {
+      this.searchQuery = ""
+    })
   },
   methods: {
     deselectBar: function(barId) {
@@ -97,6 +99,7 @@ export default {
       return bar
     },
     filteredBars: function() {
+
       return bar.getByQuery(this.searchQuery);
     },
     markers: function() {

@@ -1,6 +1,7 @@
 import * as firebase from 'firebase'; import _ from 'lodash'
 
 var bars = []
+var callbacks = []
 
 // Update bars the first time.
 function start() {
@@ -11,7 +12,12 @@ function start() {
       bar.id = key;
       bars.push(bar)
     });
+    _.forEach(callbacks, c => c())
   });
+}
+
+function addLoadCallback(c) {
+  callbacks.push(c)
 }
 
 function addEvent(barId, eventObj) {
@@ -27,7 +33,16 @@ function addEvent(barId, eventObj) {
     _.forEach(tags, function(tag) {
         bar.tags.push(tag);
     });
+
+    var updates = {}
+    updates['bar/' + barId] = bar 
     
+    firebase.database().ref().update(updates);
+}
+
+function updateBar(barId) {
+
+    var bar = _.find(bars, function(o) {console.log(o); return o.id === barId});    
     firebase.database().ref('bar/' + barId).set(bar);
 }
 
@@ -58,6 +73,8 @@ function getAll() {
 export default {
     start : start,
     addEvent : addEvent,
+    updateBar : updateBar,
+    addLoadCallback: addLoadCallback,
     save : save,
     getAll: getAll,
     getByQuery: getByQuery

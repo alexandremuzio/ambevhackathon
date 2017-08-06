@@ -99,30 +99,7 @@ export default {
       showEvents: true,
       showHighlightEvent: false,
       highLightEvent: {},
-      isShowingAlert: false,
-      bar : {
-        numReviews: 20,
-        rating: 1,
-        name: "Bar do Zeca",
-        image: "http://esq.h-cdn.co/assets/cm/15/06/54d3cdbba4f40_-_esq-01-bar-lgn.jpg",
-        address: 
-        {
-          route: "Rua H8B 238, Campus do CTA",
-          street_number: 238,
-        },
-        menu: [
-          {item: "Heiniken", price: "R$5"},
-          {item: "Coca Cola", price: "R$4"},
-          {item: "Água", price: "R$2"},
-          {item: "Costelão", price: "R$20"},
-        ],
-        events: [
-          { id: 1, name: "Atlético Mineiro vs Cruzeiro", time: "Sábado, 5 de Agosto 17:00", description: "Medio"},
-          { id: 2, name: "Mengao vs Vasco", time: "Sábado, 5 de Agosto 17:00", description: "Otimo"},
-          { id: 3, name: "Sao Paulo vs Palmeiras", time: "Sábado, 5 de Agosto 17:00", description: "Legal"},
-          { id: 4, name: "Sport vs Vozao", time: "Sábado, 5 de Agosto 17:00", description: "ÃO ENLOUQUECEEEEU!!!!  Bar maneirão cheio de eventos maneiros. O PATRÃO ENLOUQUECEEEEU!!!!  Bar maneirão cheio de eventos maneiros. O PATRÃO ENLOUQUECEEEEU!!!!  Bar maneirão cheio de eventos maneiros. O PATRÃO ENLOUQUECEEEEU!!!!  Bar maneirão cheio de eventos maneiros. O"},
-        ],
-        description: "Bar maneirão cheio de eventos maneiros. O PATRÃO ENLOUQUECEEEEU!!!!  Bar maneirão cheio de eventos maneiros. O PATRÃO ENLOUQUECEEEEU!!!!  Bar maneirão cheio de eventos maneiros. O PATRÃO ENLOUQUECEEEEU!!!!  Bar maneirão cheio de eventos maneiros. O PATRÃO ENLOUQUECEEEEU!!!!  Bar maneirão cheio de eventos maneiros. O PATRÃO ENLOUQUECEEEEU!!!!  Bar maneirão cheio de eventos maneiros. O PATRÃO ENLOUQUECEEEEU!!!!  Bar maneirão cheio de eventos maneiros. O PATRÃO ENLOUQUECEEEEU!!!!  Bar maneirão cheio de eventos maneiros. O PATRÃO ENLOUQUECEEEEU!!!!  Bar maneirão cheio de eventos maneiros. O PATRÃO ENLOUQUECEEEEU!!!!  Bar maneirão cheio de eventos maneiros. O PATRÃO ENLOUQUECEEEEU!!!!  Bar maneirão cheio de eventos maneiros. O PATRÃO ENLOUQUECEEEEU!!!!  Bar maneirão cheio de eventos maneiros. O PATRÃO ENLOUQUECEEEEU!!!!  Bar maneirão cheio de eventos maneiros. O PATRÃO ENLOUQUECEEEEU!!!!  Bar maneirão cheio de eventos maneiros. O PATRÃO ENLOUQUECEEEEU!!!!"
+      isShowingAlert: false
       }
     }
   },
@@ -145,8 +122,8 @@ export default {
     showAlert: function() {
       this.isShowingAlert = true;
     }
-  }
-  //props: ["bar"],
+  },
+  props: ["bar"],
 }
 </script>
 

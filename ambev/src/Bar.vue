@@ -99,8 +99,7 @@ export default {
       showEvents: true,
       showHighlightEvent: false,
       highLightEvent: {},
-      isShowingAlert: false
-      }
+      isShowingAlert: false,
     }
   },
   methods: {

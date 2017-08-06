@@ -2,6 +2,7 @@ import * as firebase from 'firebase'; import _ from 'lodash'
 
 var bars = []
 var callbacks = []
+var hasLoaded = false
 
 // Update bars the first time.
 function start() {
@@ -13,10 +14,15 @@ function start() {
       bars.push(bar)
     });
     _.forEach(callbacks, c => c())
+    hasLoaded = true
   });
 }
 
 function addLoadCallback(c) {
+  if (hasLoaded) {
+    c()
+    return
+  }
   callbacks.push(c)
 }
 

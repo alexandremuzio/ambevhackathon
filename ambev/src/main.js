@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
+import Bar from './Bar.vue'
 import * as firebase from 'firebase';
 import bar_events from './bar_events'
 import bar from './bar'
@@ -20,7 +21,8 @@ const About = { template: '<p>about page</p>' }
 
 const routes = {
   '/': App,
-  '/about': About
+  '/about': About,
+  '/bar': Bar
 }
 
 new Vue({

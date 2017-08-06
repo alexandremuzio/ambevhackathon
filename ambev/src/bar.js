@@ -11,17 +11,19 @@ function start() {
 }
 
 function save(name, address) {
+    var tags = name.split(" ");
     firebase.database().ref('bar').push({
         name: name,
-        address: address
+        address: address,
+        tags: tags
     });
 }
 
 function getByQuery(searchQuery) {
-    var tags = searchQuery.split(" ");
+    var tokens = searchQuery.split(" ");
     return bars.filter(
         bar =>
-            tags.some((tag, index, tags) => _.includes(bar, tag)));
+            tokens.some((token, index, tags) => bar.tags.includes(token)));
 }
 
 function getAll() {

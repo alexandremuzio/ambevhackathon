@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import App from './App.vue'
 import Bar from './Bar.vue'
+import NewBar from './Newbar.vue'
+
 import * as firebase from 'firebase';
 import bar_events from './bar_events'
 import bar from './bar'
@@ -15,6 +17,8 @@ var config = {
   messagingSenderId: "375550617353"
 };
 firebase.initializeApp(config);
+bar.start();
+bar_events.start();
 
 const NotFound = { template: '<p>Page not found</p>' }
 const About = { template: '<p>about page</p>' }
@@ -22,7 +26,8 @@ const About = { template: '<p>about page</p>' }
 const routes = {
   '/': App,
   '/about': About,
-  '/bar': Bar
+  '/bar': Bar,
+  '/novobar': NewBar,
 }
 
 new Vue({
@@ -37,6 +42,3 @@ new Vue({
   },
   render (h) { return h(this.ViewComponent) }
 })
-
-// console.log(bar_events.save("id", "name", "date"));
-// console.log(bar.save("id", "name", "address"))

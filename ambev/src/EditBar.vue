@@ -3,7 +3,7 @@
   <div class="section">
     <div class="container">
       <div class="columns">
-        <div class="column">
+        <div class="column is-half">
           <div class="image is-2by2">
             <img :src="bar.image">
           </div>

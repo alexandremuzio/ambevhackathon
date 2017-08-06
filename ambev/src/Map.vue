@@ -1,12 +1,11 @@
 <template>
-  <div class="container">
-    <button
-    @click="teste"
-    ></button>
+  <div class="fill"
+    >
     <gmap-map
-    :center="center"
-    :zoom="zoom"
-    style="width: 100%; height: 500px">
+      :center="center"
+      :zoom="zoom"
+      style="width: 100%; height: 100%"
+    >
         <gmap-marker
         :key="index"
         v-for="(m, index) in markers"

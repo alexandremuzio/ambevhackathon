@@ -39,7 +39,9 @@
     </login-modal>
     <div class="fill"
       v-if="selectedBarId !== null">
-      <button @click="deselectBar"> Back </Button>
+      <span @click="deselectBar" class="icon">
+        <i style="margin-left: 40px; margin-top:50px;" class="fa fa-arrow-left is-large"></i>
+      </span>
       <bar-card
         :bar="selectedBar"
         >
